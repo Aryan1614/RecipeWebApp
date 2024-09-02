@@ -4,7 +4,7 @@ RecipeWebApp is a platform where users can explore, share, and manage their favo
 
 ## Website
 
-The application is hosted at [RecipeWebApp](https://recipewebapp-bpg2.onrender.com).
+The application is hosted at [RecipeWebApp](https://recipe-sharing-website1614.vercel.app/) 
 
 ## Key Features
 

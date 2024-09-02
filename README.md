@@ -37,3 +37,7 @@ To run this project locally, follow these steps:
    ```bash
    git clone https://github.com/yourusername/RecipeWebApp.git
    cd RecipeWebApp
+
+2. Install All Dependencies:
+   ```bash
+   npm run dev

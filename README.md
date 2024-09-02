@@ -4,7 +4,7 @@ RecipeWebApp is a platform where users can explore, share, and manage their favo
 
 ## Website
 
-The application is hosted at [RecipeWebApp](https://tastefulrecipes1614.vercel.app/)
+The application is hosted at [RecipeWebApp](https://recipe-sharing-website1614.vercel.app/)
 And Database : [RecipeWebsite](https://drawsql.app/teams/aryan-more/diagrams/recipe-website)
 
 ## Key Features

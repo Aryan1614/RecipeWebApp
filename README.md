@@ -40,4 +40,11 @@ To run this project locally, follow these steps:
 
 2. Install All Dependencies:
    ```bash
+   npm install
+
+3. Add All The Enviroment Variables:
+   ```bash
+
+4. Run Project:
+   ```bash
    npm run dev

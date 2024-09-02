@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin: "*",
+        origin: "https://recipe-sharing-website1614.vercel.app",
         credentials: true
     })
 );

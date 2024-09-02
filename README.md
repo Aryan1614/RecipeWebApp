@@ -22,10 +22,13 @@ The application is hosted at [RecipeWebApp](https://recipewebapp-bpg2.onrender.c
 
 To run this project locally, follow these steps:
 
-### Prerequisites
+### Technologies Used
 
 - Node.js
 - MongoDB
+- ReactJS
+- Express
+- TailwindCSS
 
 ### Installation
 

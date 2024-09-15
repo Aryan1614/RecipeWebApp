@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { fetchRecipeTypeDetails } from '../services/operations/recipeTypeAPI';
 import { useParams } from 'react-router-dom';
-import Footer from '../components/common/Footer';
 import RecipeCard from '../components/core/Recipe/RecipeCard';
 
 function RecipeType() {
@@ -19,6 +18,7 @@ function RecipeType() {
             }
         }
         RecipeTypeDetails();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
   return (

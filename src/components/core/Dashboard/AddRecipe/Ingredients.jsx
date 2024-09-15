@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import { RxCross2 } from 'react-icons/rx';
 import toast from 'react-hot-toast';
 
 function Ingredients({register,setValue,getValues,errors}) {
@@ -20,10 +19,12 @@ function Ingredients({register,setValue,getValues,errors}) {
             setIngredients(recipe?.Procedure);
         }
         register("Ingredients",{required:true,validate:(value) => value.length>0});
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[recipe]);
 
     useEffect(()=>{
         setValue("Ingredients",ingredients);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[ingredients]);
 
     const HandleDelete = (idx) => {

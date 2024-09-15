@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import RecipeCard from './RecipeCard';
 import { fetchLikedRecipes } from '../../../services/operations/recipeAPI';
+import { useSelector } from 'react-redux';
 
 function LinkedRecipes() {
-
-  const {user} = useSelector((state)=>state.profile);
   const[likedRecipe,setLikedRecipe] = useState([]);
   const[loading,setLoading] = useState(false);
   const {token} = useSelector((state)=>state.auth);
@@ -18,10 +15,6 @@ function LinkedRecipes() {
     }
     fetchRecipe();
   },[]);
-
-  const HandleDelete = () => {
-
-  }
 
   return (
     <div>
@@ -36,7 +29,7 @@ function LinkedRecipes() {
           <div className='w-full rounded-lg mt-10 flex flex-row flex-wrap gap-4 mb-10'>
             {
               likedRecipe && likedRecipe.map((recipe,index) => (
-                <RecipeCard recipe={recipe} key={index} isLikedRecipe={true}  />
+                <RecipeCard setLikedRecipe={setLikedRecipe} likedRecipe={likedRecipe} recipe={recipe} key={index} isLikedRecipe={true}  />
               ))
             }
           </div>)

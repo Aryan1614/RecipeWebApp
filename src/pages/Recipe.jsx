@@ -20,7 +20,6 @@ function Recipe() {
   const[details,setDetails] = useState({});
   const {user} = useSelector((state)=>state.profile);
   const {token} = useSelector((state)=>state.auth);
-  const[isLiked,setIsLiked] = useState(user?.LikedRecipe?.includes(recipeId));
   const[RatingsData,setRatingsData] = useState({});
   const[Reviews,setReviews] = useState([]);
 

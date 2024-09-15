@@ -20,14 +20,16 @@ import AllRecipes from './pages/AllRecipes';
 import RecipeType from './pages/RecipeType';
 import Recipe from './pages/Recipe';
 import UpdateRecipe from './components/core/Dashboard/UpdateRecipe';
+import { useState } from 'react';
 
 function App() {
+  const[active,setActive] = useState(false);
   return (
     <div className='w-screen min-h-screen bg-richblack-900 font-inter text-[#3a2b30]'>
-      <NavBar className="" />
+      <NavBar active={active} setActive={setActive} />
 
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home active={active} setActive={setActive} />} />
         <Route path='/contact' element={<ContactUs/>} />
         <Route path='/about' element={<AboutUs/>} />
         <Route path='/recipe' element={<AllRecipes/>} />

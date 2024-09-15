@@ -8,9 +8,12 @@ import PopularCategories from '../components/core/HomePage/PopularCategories'
 import FeaturesRecipes from '../components/core/HomePage/FeaturesRecipes'
 import { useSelector } from 'react-redux'
 import RatingsReviewSlider from '../components/core/HomePage/RatingsReviewSlider'
+import HomeSideBar from '../components/common/HomeSideBar'
+import 'animate.css';
 
-function Home() {
+function Home({active,setActive}) {
   const {token} = useSelector((state)=>state.auth);
+  
   return (
     <div className='pt-[80px] bg-[#f0f9fc] h-[100vh] flex flex-col overflow-x-hidden'>
       <div className='flex flex-col mx-auto max-w-[1080px] w-11/12'> 
@@ -48,6 +51,13 @@ function Home() {
         </div>
       </div>
       <Footer />
+      {
+        active && (
+          <div className='absolute top-[68px] left-0 lg:hidden animate__fadeInLeft'>
+            <HomeSideBar active={active} setActive={setActive} />
+          </div>
+        )
+      }
     </div>
   )
 }

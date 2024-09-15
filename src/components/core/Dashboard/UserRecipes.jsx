@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FiPlus } from 'react-icons/fi'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { deleteRecipe, fetchAllRecipes } from '../../../services/operations/recipeAPI';
 import NotificationModal from '../../common/NotificationModal';
 import RecipeCard from './RecipeCard';
@@ -9,9 +9,7 @@ import RecipeCard from './RecipeCard';
 function UserRecipes() {
 
   const {token} = useSelector((state)=>state.auth);
-  const {user} = useSelector((state)=>state.auth);
   const[userRecipes,setUserRecipes] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const[loading,setLoading] = useState(true);
   const[modalData,setModalData] = useState(null);
@@ -25,6 +23,7 @@ function UserRecipes() {
       }
     } 
     fetchRecipes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
   const HandleDelete = async(data,setModalData) => {

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
-import { RxCross2 } from 'react-icons/rx';
 import Image from './AddRecipe/Image';
 import {apiconnector} from '../../../services/apiconnector';
-import toast from 'react-hot-toast';
 import { RecipeTypeEndpoints } from '../../../services/apis';
 import countrycode from '../../../Data/countrycode.json';
 import Tags from './AddRecipe/Tags';
@@ -35,6 +33,7 @@ function AddRecipe() {
     if(RecipeTypes.length === 0){
       fetchRecipeTypes();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
   const {

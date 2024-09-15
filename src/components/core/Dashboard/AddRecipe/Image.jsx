@@ -16,6 +16,7 @@ function Image({ register, setValue, errors }) {
     if(editRecipe){
       setPreview(recipe?.Image);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[recipe]);
 
   // Set the selected file in react-hook-form and update preview when the file changes

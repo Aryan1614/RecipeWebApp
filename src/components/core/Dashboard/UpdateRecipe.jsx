@@ -47,6 +47,7 @@ function UpdateRecipe() {
       if(RecipeTypes.length === 0){
         fetchRecipeTypes();
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     useEffect(()=>{
@@ -59,6 +60,7 @@ function UpdateRecipe() {
             }
         }
         fetchDetails();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     useEffect(()=>{
@@ -76,7 +78,7 @@ function UpdateRecipe() {
             setValue("RecipeType",recipe.RecipeType);
         }
         addvalues();
-        console.log(recipe.country);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[recipe]);
 
     const updated = () => {

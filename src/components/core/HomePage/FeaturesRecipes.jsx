@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { fetchAllRecipe } from '../../../services/operations/recipeAPI';
-import { CgProfile } from 'react-icons/cg';
 import { IoPersonOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 
 function FeaturesRecipes() {
 
     const[allRecipe,setAllRecipe] = useState([]);
+    const[loading,setLoading] = useState(false);
     const navigate = useNavigate();
 
     useEffect(()=>{
         const getAllRecipes = async() => {
+            setLoading(true);
             const response = await fetchAllRecipe();
             if(response){
                 const ans = shuffleData(response);
                 setAllRecipe(ans);
             }
-        }
-        if(allRecipe){
-            getAllRecipes();
-        }
+            setLoading(false);
+        }   
+        getAllRecipes();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     const shuffleData = (array) => {
@@ -37,8 +38,13 @@ function FeaturesRecipes() {
         <h1>Featured Recipes</h1>
       </div>
       <div className='px-10 flex flex-row items-center gap-y-4 justify-between mt-10 pb-6 flex-wrap'>
-        {
-            allRecipe && allRecipe.length > 0 && allRecipe.map((Recipe,index) => (
+        {   
+            loading ? (
+                <div className='h-[150px] w-full mt-4 rounded-lg flex items-center justify-center mb-4'>
+                    <div className='homeLoader' />
+                </div>
+            ) 
+            : allRecipe && allRecipe.length > 0 && allRecipe.map((Recipe,index) => (
                 <div onClick={() => navigate(`/recipe/${Recipe._id}`)} key={index} className='bg-white rounded-lg cursor-pointer p-4 w-[350px] gap-y-3 border-2'>
                     <div className='h-[250px]'>
                         <img src={Recipe.Image} alt='ImageFood' className='w-full rounded-lg h-[250px]' />

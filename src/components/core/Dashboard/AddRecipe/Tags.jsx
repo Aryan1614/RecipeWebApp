@@ -17,6 +17,7 @@ function Tags({errors,setValue,register}) {
             setTags(recipe?.Tags);
         }
         register("Tags",{required:true,validate:(value) => value.length > 0});
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[recipe]);
 
     useEffect(()=>{

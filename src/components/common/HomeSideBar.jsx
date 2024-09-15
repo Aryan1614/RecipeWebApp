@@ -1,11 +1,13 @@
 import React from 'react'
-import { Link, matchPath, useLocation, useNavigate } from 'react-router-dom';
-import { IoFastFoodOutline } from 'react-icons/io5';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../services/operations/authAPI';
-import { GiHamburgerMenu } from 'react-icons/gi';
+import { RxCross2 } from 'react-icons/rx'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import { logout } from '../../services/operations/authAPI'
+import { matchPath } from 'react-router-dom'
+import 'animate.css';
 
-function NavBar({active,setActive}) {
+function HomeSideBar({active,setActive}) {
 
     const navLinks = [
         {
@@ -36,15 +38,18 @@ function NavBar({active,setActive}) {
     }
 
   return (
-    <div className='w-full py-4 bg-[#f0f9fc] flex flex-row justify-center items-center border-b border-gray-200 fixed'>   
-        <div className='w-11/12 max-w-[1080px] flex flex-row items-center justify-between'>
+    <div className={`bg-blue-300 w-[280px] h-[calc(100vh-72px)] z-auto ${active ? ("animate__fadeInLeft") : ("animate__fadeInRight")}`}>
+        <div className='pl-4 pr-4 pt-4 flex flex-col  w-full'>
             <div>
-                <Link to={"/"} className='flex flex-row gap-2 items-center'>
-                    <IoFastFoodOutline className='text-3xl' />
-                    <p className='font-bold text-2xl'>Tasteful Recipes</p>
-                </Link>
+                <h1 className='text-lg text-center w-full font-semibold underline'>Welcome To Tasteful Recipes</h1>
             </div>
-            <nav className='lg:flex hidden flex-row items-center gap-10 text-md'>
+            <div className='flex items-center justify-between mt-8'>
+                <h1>Tasteful Recipes</h1>
+                <button onClick={() => setActive(!active)}>
+                    <RxCross2 />
+                </button>
+            </div>
+            <nav className='flex flex-col justify-center text-md mt-8' >
                 {
                     navLinks.map((link,index) => (
                         <Link to={link.path} key={index} className={`${matchRoute(link.path) ? "underline" : ""}`}>
@@ -53,18 +58,18 @@ function NavBar({active,setActive}) {
                     ))
                 }
             </nav>
-            <div className='lg:flex hidden items-center gap-4'>
+            <div className='flex flex-row items-center gap-2 mt-8'>
                 {
                     token === null && (
                         <Link to={"/signup"}>
-                            <button className='py-2 px-3 border border-gray-500 flex items-center justify-center hover:bg-blue-300 rounded-xl'>SignUp</button>
+                            <button className='py-2 px-3 border border-gray-500 flex items-center justify-center bg-blue-200 hover:bg-blue-300 rounded-xl'>SignUp</button>
                         </Link>
                     )
                 }
                 {
                     token === null && (
                         <Link to={"/login"}>
-                            <button className='py-2 px-3 flex items-center justify-center rounded-xl bg-pink-200'>Login</button>
+                            <button className='py-2 px-3 flex items-center justify-center rounded-xl bg-pink-300 border-2 border-pink-200'>Login</button>
                         </Link>
                     )
                 }
@@ -83,12 +88,9 @@ function NavBar({active,setActive}) {
                     )
                 }
             </div>
-            <div className='lg:hidden visible'>
-                <GiHamburgerMenu className='text-xl' onClick={() => setActive(!active)} />
-            </div>
         </div>
     </div>
   )
 }
 
-export default NavBar;
+export default HomeSideBar

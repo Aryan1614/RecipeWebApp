@@ -13,7 +13,7 @@ function RecipeCard({recipe,HandleDelete,isLikedRecipe,setModalData}) {
     const {token} = useSelector((state)=>state.auth);
 
     const handleUnlikeRecipe = async(recipeId) => {
-        await removeLike(recipeId,token,dispatch)
+        await removeLike(recipeId,token,dispatch);
         navigate("/dashboard/Liked");
     }
 
@@ -45,8 +45,11 @@ function RecipeCard({recipe,HandleDelete,isLikedRecipe,setModalData}) {
                 })} ><AiOutlineDelete /></button>
             </div>
         </div>
-        <div className={`${isLikedRecipe ? "flex" : "hidden"}`} onClick={() => handleUnlikeRecipe(recipe._id)}>
-            <div className='rounded-full w-fit bg-blue-200 p-1'>
+        <div 
+            className={`${isLikedRecipe ? "flex" : "hidden"}`} 
+            // onClick={(e) => e.stopPropagation()} 
+        >
+            <div className='rounded-full w-fit bg-blue-200 p-1' onClick={(e) => handleUnlikeRecipe(recipe._id)}>
                 <FcLike />
             </div>
         </div>

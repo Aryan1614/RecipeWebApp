@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import { RxCross2 } from 'react-icons/rx';
 import toast from 'react-hot-toast';
 
 function Procedure({register,setValue,errors}) {
@@ -19,10 +18,12 @@ function Procedure({register,setValue,errors}) {
             setSteps(recipe?.Procedure);
         }
         register("Procedure",{required:true,validate:(value) => value.length>0});
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[recipe]);
 
     useEffect(()=>{
         setValue("Procedure",steps);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[steps]);
 
     const HandleDelete = (idx) => {

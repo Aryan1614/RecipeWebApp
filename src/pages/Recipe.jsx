@@ -33,7 +33,7 @@ function Recipe() {
     if(recipeId){
       fetchRecipeDetails();
     }
-  },[recipeId]);
+  },[]);
 
   useEffect(() => {
     const fetchRatingDetails = async() => {

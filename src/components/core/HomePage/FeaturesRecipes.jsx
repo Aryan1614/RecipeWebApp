@@ -20,7 +20,6 @@ function FeaturesRecipes() {
             setLoading(false);
         }   
         getAllRecipes();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     const shuffleData = (array) => {
